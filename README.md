@@ -317,7 +317,7 @@ The dated activity analysis uses test dates, not verified application dates.
 
 ### 8.4 Test-Taker Analysis — Qualification Performance
 
-![Test Taker Analysis](screenshots/test_taker_analysis.png)
+![Test Taker Analysis]
 
 **Purpose:** Evaluate test participation and qualification outcomes.
 
@@ -336,7 +336,7 @@ The dated activity analysis uses test dates, not verified application dates.
 
 ### 8.5 Admissions vs Intake — Capacity Utilization
 
-![Admissions vs Intake](screenshots/admissions_vs_intake.png)
+![Admissions vs Intake]
 
 **Purpose:** Evaluate admissions performance against program capacity.
 
@@ -357,7 +357,7 @@ Program-level findings should be validated against known mapping inconsistencies
 
 ### 8.6 Admitted Student Profile — Student Characteristics
 
-![Admitted Student Profile](screenshots/admitted_student_profile.png)
+![Admitted Student Profile]
 
 **Purpose:** Understand the composition of admitted students.
 
@@ -494,12 +494,7 @@ GITAM-Admissions-Analytics/
 │   └── GITAM_Dashboard_Design_Document_Updated.pdf
 │
 ├── presentation/
-│   └── GITAM_Admissions_Project_Presentation.pptx
-│
-├── excel/
-│   └── Priyanka_Lenka_GITAM_BA_Assignment.xlsx
-│
-└── .gitignore
+│   └── GITAM_Admissions_Project_Presentation.ppt
 ```
 
 ### File Descriptions
@@ -512,7 +507,7 @@ GITAM-Admissions-Analytics/
 | `GITAM_Admissions_One_Page_Summary.pdf` | Executive summary of findings |
 | `GITAM_Dashboard_Design_Document_Updated.pdf` | Technical design and modeling documentation |
 | `GITAM_Admissions_Project_Presentation.pptx` | Project presentation |
-| `Priyanka_Lenka_GITAM_BA_Assignment.xlsx` | Excel performance analysis and forecasting |
+
 
 **Repository note:** This is the intended folder structure. The original PDF, PowerPoint, and Excel files should be uploaded only after confirming publication permission and reviewing confidential information. Do not publish identifiable student or employee data.
 
