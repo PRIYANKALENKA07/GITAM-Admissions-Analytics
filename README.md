@@ -1,7 +1,6 @@
 
 <div align="center">
 
-# 🎓 GITAM University
 ## Admissions Analytics & Performance Dashboard
 
 ### Turning Admissions Data into Business Decisions
