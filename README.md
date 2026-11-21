@@ -1,181 +1,479 @@
-🎓 GITAM University | Admissions Analytics & Performance Dashboard
-From fragmented admissions records to actionable enrollment, capacity and performance insights
-   
-Business Analytics Portfolio Case Study | 2026 Power BI Dashboard + Separate 2025 Excel Analysis
-Attribution: Independent analytics assignment/case study using GITAM-branded materials, not an official GITAM publication or endorsement. Branding is retained to reflect the supplied project. Publishing university materials requires appropriate permission.
 
-</div>📌 Executive summary — what this project represents
-An end-to-end admissions performance analytics solution designed to help university admissions, marketing and leadership teams understand where applicants drop out of the funnel, which campuses and programs need intervention, whether seats are being utilized, and how to plan admissions activity.
+<div align="center">
 
-The project has two distinct workstreams:
-1. 2026 Power BI reporting: four CSV datasets → data quality checks → Power Query transformations → a program-level dimensional model → DAX measures → six interactive dashboard pages.
-2. 2025 Excel operational analytics: separate workbooks → weighted performance scoring for 53 team members → quartile segmentation → weekly scenario-based admissions forecast.
-This is a decision-support analytics project, not a marketing attribution or campaign ROI model. The provided datasets support geography, application demand and conversion analysis, but do not establish channel spend, campaign-level ROI or cost per lead.
-📊 Dashboard preview
+# 🎓 GITAM University
+## Admissions Analytics & Performance Dashboard
 
-<details><summary><strong>View all six report pages</strong></summary>1. Main Dashboard — leadership snapshot
+### Turning Admissions Data into Business Decisions
 
-2. Admissions Funnel — conversion and drop-off
+![Power BI](https://img.shields.io/badge/Power_BI-Dashboard-F2C811?style=flat-square)
+![Excel](https://img.shields.io/badge/Excel-Analytics-217346?style=flat-square)
+![Power Query](https://img.shields.io/badge/Power_Query-ETL-167C80?style=flat-square)
+![DAX](https://img.shields.io/badge/DAX-KPI_Development-305496?style=flat-square)
 
-3. Application Analysis — demand, geography and campus mix
+**Business Intelligence | Data Modeling | Funnel Analytics | Forecasting**
 
-4. Test-Taker Analysis — qualification, absences and GAT scores
+</div>
 
-5. Admissions vs Intake — capacity and unfilled seats
+---
 
-6. Admitted Student Profile — admitted cohort characteristics
+## 📌 1. Project Overview
 
-</details>🎯 Business problems and decisions supported
-Business question	Analytical solution	Decision supported
-Where are we losing qualified prospects?	Application → test → qualification → admission funnel	Prioritize post-qualification follow-up and conversion improvement
-Which campuses convert best?	Campus-level conversion comparisons	Focus coaching and operational investigation where conversion is lower
-Where is demand concentrated?	State, campus, program and test-activity views	Align outreach and admissions capacity with observed demand
-Which programs have unused capacity?	Intake vs confirmed admissions, utilization and seat gap	Review program-specific recruitment and seat planning
-How are counseling teams performing?	Weighted KPI composite and quartile ranking (2025)	Target coaching and recognize high performers
-How many admissions might arrive by the deadline?	Pessimistic / normative / optimistic forecast (2025)	Support scenario planning and resource allocation
+This project presents an end-to-end **University Admissions Analytics Solution** designed to help admissions teams, management, and university leadership monitor recruitment performance, understand admission conversion, evaluate campus-level demand, and identify opportunities to improve seat utilization.
 
+The project combines two independent analytical workstreams:
 
-🔢 2026 KPI scorecard
-Metric	Result	Definition / interpretation
-Applications	32,891	Application records
-Test takers	32,476	Clean test-taker records
-Qualified	26,070	Qualified test records
-Confirmed admissions	7,629	Allotment_Flag = Admitted; cancellations excluded
-Intake	9,201	Available program seats
-Seat utilization	82.91%	Confirmed admissions / intake
-Application → test taker	98.74%	Aggregate stage-count ratio
-Test taker → qualified	80.27%	Aggregate stage-count ratio
-Qualified → admission	29.26%	Aggregate stage-count ratio
+- **2026 Power BI Admissions Analytics:** Data preparation, dimensional modeling, KPI development, and six interactive dashboards.
+- **2025 Excel Operational Analytics:** Team performance evaluation, weighted quartile analysis, and weekly admissions forecasting.
 
+### What Does This Project Represent?
 
-Interpretation note: These conversion rates are ratios of stage totals. Program assignment changes and source inconsistencies mean they should not be presented as a fully reconciled, student-level cohort conversion analysis.
+The project demonstrates the complete business analytics lifecycle:
 
-🧱 End-to-end workflow and architecture
-```mermaid
-flowchart TD
-    subgraph S["01 · 2026 source layer"]
-      A["Applications.csv<br/>32,891"]
-      T["Test_Takers.csv<br/>32,483 raw"]
-      D["Admissions.csv<br/>9,312 allotments"]
-      I["Intake.csv<br/>214 programs / 9,201 seats"]
-    end
-    subgraph Q["02 · Power Query / preparation"]
-      C["Standardize NULLs and types<br/>validate IDs / remove damaged duplicates<br/>treat GAT > 300 as invalid<br/>derive ProgKey and reporting categories"]
-    end
-    subgraph M["03 · Semantic model"]
-      K["Intake dimension<br/>1-to-many relationships<br/>three fact tables"]
-      X["DAX measures / lookup columns<br/>conversion, admissions, utilization, gap"]
-    end
-    subgraph R["04 · Decision layer"]
-      P["Six-page interactive Power BI report<br/>synced slicers / business insights"]
-    end
-    A --> C
-    T --> C
-    D --> C
-    I --> C
-    C --> K --> X --> P
-    classDef source fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e;
-    classDef prep fill:#fef3c7,stroke:#d97706,color:#78350f;
-    classDef model fill:#dcfce7,stroke:#16a34a,color:#14532d;
-    classDef report fill:#f3e8ff,stroke:#9333ea,color:#581c87;
-    class A,T,D,I source;
-    class C prep;
-    class K,X model;
-    class P report;
-```
-2025 Excel analysis — independent parallel workflow
+**Business Understanding → Data Preparation → Modeling → KPI Development → Reporting → Insights → Recommendations**
+
+It focuses not only on creating dashboards, but also on answering business questions and supporting data-driven decision-making.
+
+### Technology Stack
+
+| Area | Technologies |
+|---|---|
+| Data Sources | CSV, Excel |
+| Data Preparation | Power Query |
+| Data Modeling | Power BI Relationships |
+| Calculations | DAX, Excel Formulas |
+| Visualization | Power BI |
+| Forecasting | Excel Scenario Analysis |
+| Documentation | PDF, PowerPoint |
+
+---
+
+## 📊 2. Executive Dashboard
+
+![GITAM Admissions Dashboard](screenshots/main_dashboard.png)
+
+### Key Performance Indicators — 2026
+
+| KPI | Value |
+|---|---:|
+| Total Applications | **32,891** |
+| Test Takers | **32,476** |
+| Qualified Candidates | **26,070** |
+| Confirmed Admissions | **7,629** |
+| Total Intake Capacity | **9,201** |
+| Seat Utilization | **82.91%** |
+| Application-to-Test Ratio | **98.74%** |
+| Test-to-Qualification Ratio | **80.27%** |
+| Qualified-to-Admission Ratio | **29.26%** |
+
+**Business interpretation:** The university achieved 82.91% overall seat utilization. The 29.26% qualified-to-admission ratio highlights a potential post-qualification conversion bottleneck requiring further investigation.
+
+> Conversion percentages are aggregate stage-count ratios. They should not be interpreted as fully reconciled applicant-level conversion rates.
+
+---
+
+## 🎯 3. Business Problems Addressed
+
+The project was designed to answer six important business questions.
+
+| Business Problem | Analytical Solution | Business Value |
+|---|---|---|
+| Where are applicants dropping out? | Admissions funnel | Identify conversion bottlenecks |
+| Which campuses perform better? | Campus performance analysis | Compare admissions effectiveness |
+| Which programs attract more demand? | Application analysis | Support recruitment planning |
+| Which programs have unfilled seats? | Admissions vs Intake | Improve capacity planning |
+| How are team members performing? | Weighted KPI quartiles | Support performance coaching |
+| How many admissions can be expected? | Scenario forecasting | Support resource planning |
+
+### Primary Business Objectives
+
+1. Monitor end-to-end admissions performance.
+2. Identify conversion gaps across the admissions journey.
+3. Analyze application demand by campus and program.
+4. Measure seat utilization against intake capacity.
+5. Evaluate admissions team performance.
+6. Support admissions planning through forecasting.
+
+---
+
+## 🏗️ 4. End-to-End Analytics Workflow
+
+### Compact Technical Architecture
+
 ```mermaid
 flowchart LR
-    A["2025 Excel workbooks<br/>applications / tests / admissions / team performance"] --> B["Validation and KPI calculations"]
-    B --> C["95th-percentile outlier cap<br/>Min–Max scaling"]
-    C --> D["Weighted team score<br/>Q1–Q4 ranking"]
-    B --> E["Weekly admission history<br/>growth assumptions"]
-    E --> F["Pessimistic / normative / optimistic forecasts"]
-    classDef inputs fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e;
-    classDef process fill:#fef3c7,stroke:#d97706,color:#78350f;
-    classDef outputs fill:#dcfce7,stroke:#16a34a,color:#14532d;
-    class A inputs;
-    class B,C,E process;
-    class D,F outputs;
+    A["CSV Files"] --> B["Power Query"]
+    B --> C["Data Model"]
+    C --> D["DAX KPIs"]
+    D --> E["Power BI"]
+    E --> F["Insights"]
+
+    classDef blue fill:#DBEAFE,stroke:#2563EB,color:#1E40AF
+    classDef green fill:#DCFCE7,stroke:#16A34A,color:#166534
+    classDef purple fill:#F3E8FF,stroke:#9333EA,color:#6B21A8
+
+    class A,B blue
+    class C,D green
+    class E,F purple
 ```
-🗂️ Power BI data modeling — schema and relationship design
-Model type: program-centered dimensional model with Intake as the dimension and Applications, Test_Takers and Admissions as fact tables. This is a star-like reporting model, not a fully conformed enterprise star schema.
+
+### Workflow Explanation
+
+| Stage | Activities |
+|---|---|
+| 1. Data Collection | Import Applications, Test_Takers, Admissions, and Intake CSV files |
+| 2. Data Profiling | Identify missing values, duplicates, invalid scores, and inconsistencies |
+| 3. Transformation | Clean data and standardize program keys using Power Query |
+| 4. Data Modeling | Build relationships between dimension and fact tables |
+| 5. KPI Development | Create DAX measures for conversion and utilization |
+| 6. Visualization | Develop six interactive Power BI dashboard pages |
+| 7. Business Analysis | Identify trends, bottlenecks, and capacity gaps |
+| 8. Recommendations | Translate analytical findings into proposed business actions |
+
+---
+
+## 🗂️ 5. Data Sources
+
+The 2026 Power BI dashboard uses four CSV datasets.
+
+| Dataset | Records | Description |
+|---|---:|---|
+| Applications | 32,891 | Applicant details, campus, program, and geography |
+| Test_Takers | 32,483 raw | Test participation, scores, and qualification status |
+| Admissions | 9,312 | Allotments, cancellations, and confirmed admissions |
+| Intake | 214 programs | Program-level intake capacity |
+
+### Data Preparation and Quality Checks
+
+Power Query transformations included:
+
+- Standardizing null values and data types.
+- Converting application identifiers to text.
+- Removing seven damaged or duplicate test records.
+- Treating 182 implausible GAT scores above 300 as invalid.
+- Standardizing campus and program names.
+- Creating a normalized `ProgKey`.
+- Distinguishing confirmed admissions from cancelled allotments.
+- Documenting limitations in date and program mapping fields.
+
+### Data Reconciliation
+
+| Validation | Calculation | Result |
+|---|---|---:|
+| Clean Test Records | 32,483 − 7 | 32,476 |
+| Confirmed Admissions | 9,312 − 1,683 cancellations | 7,629 |
+| Net Seat Gap | 9,201 − 7,629 | 1,572 |
+
+These checks help prevent misleading reporting and improve the reliability of business KPIs.
+
+---
+
+## 🗄️ 6. Power BI Data Modeling
+
+### Compact Data Model
+
 ```mermaid
 flowchart TB
-    I["Intake · dimension<br/>ProgKey [unique]<br/>Campus / Degree / School / Program<br/>2026 Intake"]
-    A["Applications · fact<br/>ProgKey [many]<br/>Appno / State / Campus"]
-    T["Test_Takers · fact<br/>ProgKey [many]<br/>ApplicationNumber / GAT_SCORE<br/>Result_Status / Test Date"]
-    D["Admissions · fact<br/>ProgKey [many]<br/>ApplicationNumber / Allotment_Flag<br/>Scholar Status / Tenth %"]
-    I -->|"1 → * · single-direction"| A
-    I -->|"1 → * · single-direction"| T
-    I -->|"1 → * · single-direction"| D
-    classDef dim fill:#c7d2fe,stroke:#4338ca,color:#312e81;
-    classDef fact fill:#d1fae5,stroke:#059669,color:#064e3b;
-    class I dim;
-    class A,T,D fact;
+    I["INTAKE<br/>Dimension"]
+
+    A["APPLICATIONS<br/>Fact"]
+    T["TEST TAKERS<br/>Fact"]
+    D["ADMISSIONS<br/>Fact"]
+
+    I -->|"1:M"| A
+    I -->|"1:M"| T
+    I -->|"1:M"| D
+
+    classDef dim fill:#C7D2FE,stroke:#4338CA,color:#312E81
+    classDef fact fill:#D1FAE5,stroke:#059669,color:#064E3B
+
+    class I dim
+    class A,T,D fact
 ```
-From	To	Join key	Cardinality	Filter direction
-Intake	Applications	ProgKey	1:*	Single
-Intake	Test_Takers	ProgKey	1:*	Single
-Intake	Admissions	ProgKey	1:*	Single
 
+### Modeling Approach
 
-Why this design? ProgKey is a normalized Campus | Program combination (uppercase, trimmed). The intake table supports common program filtering without adding potentially ambiguous fact-to-fact relationships. Disconnected Funnel Stages and Metrics helper tables support report visuals. The design document also describes application-number-based LOOKUPVALUE columns for admissions state and GAT score.
+The Power BI model uses a **program-centered dimensional structure**.
 
-Trade-off: There is no date dimension because application and allotment date fields were unusable in the supplied files. The monthly chart uses test dates, so it must be labeled as test activity rather than a verified application-date trend.
-🧹 Data quality, transformation and validation
-Issue found	Documented handling	Why it matters
-Text NULL values	Standardized to blanks	More consistent filtering and analysis
-IDs stored inconsistently	Converted identifiers to text	Preserve identifiers and avoid type errors
-Damaged / duplicate test IDs	Removed 7 records (32,483 → 32,476)	Cleaner test-taker count
-GAT scores over 300	Treated 182 implausible values as invalid	Avoid distorting score analysis
-Inconsistent campus / program strings	Created normalized ProgKey	Enable program-level relationships
-Cancelled allotments	Excluded 1,683 from confirmed admissions	Avoid overstating admissions
-Unusable application/allotment dates	Used test dates for monthly activity	Prevent misleading date interpretation
-Program mismatches	Documented ratios above 100% and unmatched programs	Flag unresolved reconciliation limitations
+The Intake table acts as the central dimension, connected to three fact tables through a standardized program key.
 
+| Table | Type | Key Fields |
+|---|---|---|
+| Intake | Dimension | ProgKey, Campus, School, Program, Intake |
+| Applications | Fact | Application Number, ProgKey, State |
+| Test_Takers | Fact | Application Number, ProgKey, GAT Score, Result Status |
+| Admissions | Fact | Application Number, ProgKey, Allotment Flag |
 
-Reconciliation example: 9,312 allotment records − 1,683 cancellations = 7,629 confirmed admissions. The reported 1,572-seat gap is 9,201 capacity − 7,629 admissions. Some program-level intake gaps require further mapping validation.
-📈 Dashboard pages — what users can see
-Page	What it shows	Business value
-Main Dashboard	Applications, test takers, qualified, admissions, intake, utilization, geography and trends	Executive monitoring
-Admissions Funnel	Stage conversion, campus comparisons and school/program breakdown	Identify bottlenecks
-Application Analysis	State, campus, degree and dated test-activity patterns	Understand demand mix
-Test-Taker Analysis	Qualified, absent, rejected, PI pending and GAT scores	Improve test and interview follow-up
-Admissions vs Intake	Seat capacity, utilization, unfilled-seat gap by campus/program	Capacity planning
-Admitted Student Profile	Student demographics, scores, board and scholarship indicators	Understand admitted cohort
+### Relationship Configuration
 
+| From | To | Relationship | Filter Direction |
+|---|---|---|---|
+| Intake | Applications | One-to-Many | Single |
+| Intake | Test_Takers | One-to-Many | Single |
+| Intake | Admissions | One-to-Many | Single |
 
-💡 Findings → implications → recommended actions
-Evidence	Business implication	Proposed action / metric
-29.26% of qualified candidates converted to admissions	Largest visible funnel loss occurs after qualification	Segment by campus/program; track qualified-to-admitted conversion weekly
-BLR 43.2% qualified-to-admission vs HYD 28.2% and VSP 27.3%	Different campus conversion patterns	Review follow-up processes and program mix; compare conversion over time
-520 unfilled CSE seats across three campuses	Concentrated capacity opportunity	Investigate demand and enrollment barriers; monitor CSE seat gap
-3,680 absent test takers and 608 PI pending	Follow-up and interview-completion opportunities	Track test attendance and PI pending aging
-March = 33% of dated test records; March–May ≈ 77%	Operational activity is seasonally concentrated	Plan staffing around verified test activity, not assumed application dates
-45 of 214 programs below 50% utilization (subject to mapping limitations)	Long tail of underused capacity	Validate mappings before targeting program-level action
+### Why This Model?
 
+The model was designed to:
 
-Recommendations are analytical proposals, not claims that interventions were implemented or that they produced measured uplift.
-📐 Excel analytics — 2025 operational workstream
-Team performance quartiles
-- Evaluated 53 team members using three KPIs: application-to-admission conversion (50%), achievement against plan (25%), and application-to-test conversion (25%).
-- Applied a 95th-percentile cap for high outliers and Min–Max normalization before calculating the weighted score.
-- Ranked members and divided them into Q1–Q4 (13 / 13 / 13 / 14 according to the report's quartile description; actual group sizes should be confirmed from the final workbook before publishing).
-- Intended use: compare performance more fairly and identify coaching opportunities; do not publish identifiable employee-level rankings without permission.
-Composite scoring logic:
+- Support campus and program-level filtering.
+- Avoid unnecessary direct fact-to-fact relationships.
+- Enable reusable KPI measures.
+- Simplify reporting and analysis.
+- Support conversion and capacity comparisons.
 
-Score = 0.50 × normalized(App→Adm%) + 0.25 × normalized(Actual%) + 0.25 × normalized(App→TT%)
-Weekly scenario forecast
-The separate 2025 analysis projects cumulative admissions through 17 July 2025:
-Scenario	Forecast admissions	Use
-Pessimistic	4,789	Downside resource planning
-Normative	6,846	Working planning baseline
-Optimistic	9,484	Upside capacity scenario
+The structure is **star-like**, rather than a fully conformed enterprise star schema.
 
+**Modeling limitation:** Program changes and inconsistent program names can create unmatched records. A controlled program mapping table would improve future reconciliation.
 
-The model uses recent weekly admission growth and different scenario assumptions. These are forecasts, not actual results; no forecast accuracy or causal campaign impact is claimed.
-📁 Repository structure and file guide
+---
+
+## ⚙️ 7. KPI Development and DAX
+
+DAX measures were used to calculate important admissions metrics.
+
+| KPI | Calculation Logic |
+|---|---|
+| Total Applications | Count of application records |
+| Total Test Takers | Count of cleaned test records |
+| Qualified Candidates | Count of qualified records |
+| Confirmed Admissions | Count of admitted records |
+| Application-to-Test % | Test Takers / Applications |
+| Test-to-Qualification % | Qualified / Test Takers |
+| Qualified-to-Admission % | Admissions / Qualified |
+| Seat Utilization % | Admissions / Intake |
+| Seat Gap | Intake − Admissions |
+
+### Business Importance
+
+These KPIs enable stakeholders to evaluate recruitment performance, identify conversion gaps, and monitor seat capacity at campus and program levels.
+
+---
+
+## 📈 8. Power BI Dashboard Analysis
+
+The solution contains six dashboard pages.
+
+### 8.1 Main Dashboard — Executive Overview
+
+![Main Dashboard](screenshots/main_dashboard.png)
+
+**Purpose:** Provide leadership with a consolidated view of university admissions performance.
+
+**What can be analyzed:**
+
+- Total applications.
+- Test participation.
+- Qualified candidates.
+- Confirmed admissions.
+- Intake capacity.
+- Seat utilization.
+- Campus and geographic distribution.
+
+**Business value:** Enables management to monitor admissions performance through a centralized reporting interface.
+
+---
+
+### 8.2 Admissions Funnel — Conversion Analysis
+
+![Admissions Funnel](screenshots/admissions_funnel.png)
+
+**Purpose:** Identify conversion bottlenecks across the admissions lifecycle.
+
+The dashboard analyzes the progression from applications to test takers, qualified candidates, and confirmed admissions.
+
+#### Campus Conversion Comparison
+
+| Campus | Qualified-to-Admission Ratio |
+|---|---:|
+| Bengaluru | 43.2% |
+| Hyderabad | 28.2% |
+| Visakhapatnam | 27.3% |
+
+**Key finding:** Bengaluru showed the highest qualified-to-admission ratio.
+
+**Business recommendation:** Investigate differences in campus follow-up practices, program mix, and candidate engagement.
+
+---
+
+### 8.3 Application Analysis — Demand and Geography
+
+![Application Analysis](screenshots/application_analysis.png)
+
+**Purpose:** Understand application demand and geographic distribution.
+
+#### Key Findings
+
+- Andhra Pradesh and Telangana contributed approximately 84.4% of applications.
+- Visakhapatnam accounted for approximately 49.6%.
+- Hyderabad accounted for approximately 38.5%.
+- Bengaluru accounted for approximately 11.9%.
+
+**Business recommendation:** Use geographic and campus demand patterns to inform recruitment planning.
+
+The dated activity analysis uses test dates, not verified application dates.
+
+---
+
+### 8.4 Test-Taker Analysis — Qualification Performance
+
+![Test Taker Analysis](screenshots/test_taker_analysis.png)
+
+**Purpose:** Evaluate test participation and qualification outcomes.
+
+| Metric | Value |
+|---|---:|
+| Qualified | 26,070 |
+| Absent | 3,680 |
+| Rejected | 2,118 |
+| PI Pending | 608 |
+
+**Business insight:** Absent candidates and pending interviews represent potential follow-up opportunities.
+
+**Recommended action:** Monitor test attendance and pending interview completion.
+
+---
+
+### 8.5 Admissions vs Intake — Capacity Utilization
+
+![Admissions vs Intake](screenshots/admissions_vs_intake.png)
+
+**Purpose:** Evaluate admissions performance against program capacity.
+
+| Metric | Value |
+|---|---:|
+| Total Intake | 9,201 |
+| Confirmed Admissions | 7,629 |
+| Utilization | 82.91% |
+| Net Unfilled Seats | 1,572 |
+
+**Key finding:** B.Tech Computer Science and Engineering had a combined gap of 520 seats across three campuses.
+
+**Business recommendation:** Investigate program-level enrollment barriers and review recruitment priorities.
+
+Program-level findings should be validated against known mapping inconsistencies.
+
+---
+
+### 8.6 Admitted Student Profile — Student Characteristics
+
+![Admitted Student Profile](screenshots/admitted_student_profile.png)
+
+**Purpose:** Understand the composition of admitted students.
+
+The dashboard provides analysis of:
+
+- Gender distribution.
+- Geographic distribution.
+- Academic board.
+- GAT score.
+- Scholarship indicators.
+
+**Business value:** Supports student profile analysis and future admissions planning.
+
+---
+
+## 📊 9. Excel Analytics — Team Performance
+
+The separate 2025 Excel analysis evaluated 53 admissions team members using a weighted KPI scoring framework.
+
+### KPI Weight Distribution
+
+| KPI | Weight |
+|---|---:|
+| Application-to-Admission Conversion | 50% |
+| Actual Achievement Against Plan | 25% |
+| Application-to-Test Conversion | 25% |
+
+### Analytical Methodology
+
+1. Validate employee performance data.
+2. Cap high outliers at the 95th percentile.
+3. Apply Min–Max normalization.
+4. Calculate weighted performance scores.
+5. Rank team members.
+6. Segment performance into quartiles.
+
+### Composite Score
+
+`Score = 0.50 × Normalized(App-to-Adm%) + 0.25 × Normalized(Actual%) + 0.25 × Normalized(App-to-TT%)`
+
+### Business Value
+
+This analysis provides a standardized approach for performance evaluation, coaching prioritization, and identifying higher-performing team members.
+
+Identifiable employee-level results are not intended for public release.
+
+---
+
+## 🔮 10. Excel Admissions Forecasting
+
+The 2025 forecasting analysis estimated cumulative admissions using historical weekly performance and scenario assumptions.
+
+### Compact Forecasting Workflow
+
+```mermaid
+flowchart LR
+    A["Weekly Data"] --> B["Growth Analysis"]
+    B --> C["Scenarios"]
+    C --> D["Forecast"]
+    D --> E["Planning"]
+
+    classDef blue fill:#DBEAFE,stroke:#2563EB,color:#1E40AF
+    classDef orange fill:#FEF3C7,stroke:#D97706,color:#78350F
+    classDef green fill:#DCFCE7,stroke:#16A34A,color:#166534
+
+    class A,B blue
+    class C,D orange
+    class E green
+```
+
+### Forecast Results — 17 July 2025
+
+| Scenario | Forecast Admissions |
+|---|---:|
+| Pessimistic | 4,789 |
+| Normative | 6,846 |
+| Optimistic | 9,484 |
+
+### Business Applications
+
+- Admissions capacity planning.
+- Resource allocation.
+- Monitoring expected admissions.
+- Preparing for downside and upside scenarios.
+
+**Note:** These are forecast estimates, not actual admissions outcomes. Forecast accuracy has not been independently validated.
+
+---
+
+## 💡 11. Business Insights and Recommendations
+
+| Business Finding | Implication | Recommended Action |
+|---|---|---|
+| 29.26% qualified-to-admission ratio | Potential post-qualification bottleneck | Investigate candidate follow-up and conversion barriers |
+| Bengaluru has the highest conversion ratio | Campus-level performance differences | Compare operating practices and program mix |
+| 520 unfilled CSE seats | Concentrated capacity gap | Review program-specific recruitment challenges |
+| 3,680 absent test takers | Potential engagement issue | Investigate absence reasons and follow-up |
+| 608 PI Pending candidates | Incomplete interview pipeline | Monitor pending interviews and completion |
+| 82.91% seat utilization | Remaining capacity | Track campus and program utilization |
+
+### Recommended Business Monitoring KPIs
+
+- Qualified-to-Admission Conversion.
+- Test Attendance Rate.
+- Pending Interview Count.
+- Program Seat Utilization.
+- Admission Funnel Drop-off.
+- Actual vs Forecast Variance.
+
+These recommendations are proposed actions, not claims of implemented business improvements.
+
+---
+
+## 📁 12. GitHub Repository Structure
+
+```text
 GITAM-Admissions-Analytics/
 │
 ├── README.md
@@ -189,29 +487,96 @@ GITAM-Admissions-Analytics/
 │   └── admitted_student_profile.png
 │
 ├── dashboard/
-│   └── GITAM_Admission_Analysis.pdf                  [optional; approval required]
+│   └── GITAM_Admission_Analysis.pdf
 │
 ├── documentation/
-│   ├── GITAM_Admissions_One_Page_Summary.pdf         [optional; approval required]
-│   └── GITAM_Dashboard_Design_Document_Updated.pdf  [optional; review required]
+│   ├── GITAM_Admissions_One_Page_Summary.pdf
+│   └── GITAM_Dashboard_Design_Document_Updated.pdf
 │
 ├── presentation/
-│   └── GITAM_Admissions_Project_Presentation.pptx   [optional; approval required]
+│   └── GITAM_Admissions_Project_Presentation.pptx
 │
 ├── excel/
-│   └── Priyanka_Lenka_GITAM_BA_Assignment.xlsx       [DO NOT publish original without sanitizing]
+│   └── Priyanka_Lenka_GITAM_BA_Assignment.xlsx
 │
 └── .gitignore
-Repository packaging note: The public-safe starter package includes this README and six dashboard PNGs. The PDF, PowerPoint and original Excel files are listed above as possible additions, not as files already included. Their publication depends on authorization and review. A .pbix file was not supplied and is not claimed to be available.
-🔍 Limitations and next steps
-- Data provenance: Project documents describe an assignment; no evidence is provided of production deployment, automated refresh, scheduled monitoring or stakeholder adoption.
-- Reproducibility: Source CSVs and the .pbix were not supplied, so the repository is a documented portfolio showcase, not a runnable solution.
-- Conversion measurement: Aggregate funnel ratios should be reconciled at the applicant level before interpreting true transitions.
-- Program matching: Program-name changes can cause over-100% ratios or unmatched admissions; a controlled program mapping table would improve reliability.
-- Forecast validation: Back-test scenarios against observed weekly results when those records are available.
-- Data governance: Exclude identifiable student and employee records, internal documents, and proprietary datasets without explicit authorization.
-👤 Project ownership and skills demonstrated
-Prepared by: Priyanka Lenka
-Project type: University admissions business analytics assignment / portfolio case study
-Skills: Power BI, Power Query, DAX, Excel, KPI design, data quality, dimensional modeling, admissions funnel analytics, scenario forecasting, reporting documentation and business recommendations.
-This repository demonstrates analytical methodology and reporting artifacts. It does not claim an official GITAM endorsement, verified commercial outcomes, or production-system ownership.
+```
+
+### File Descriptions
+
+| File / Folder | Description |
+|---|---|
+| `README.md` | Project overview, methodology, modeling, and findings |
+| `screenshots/` | Six Power BI dashboard screenshots |
+| `GITAM_Admission_Analysis.pdf` | Six-page dashboard export |
+| `GITAM_Admissions_One_Page_Summary.pdf` | Executive summary of findings |
+| `GITAM_Dashboard_Design_Document_Updated.pdf` | Technical design and modeling documentation |
+| `GITAM_Admissions_Project_Presentation.pptx` | Project presentation |
+| `Priyanka_Lenka_GITAM_BA_Assignment.xlsx` | Excel performance analysis and forecasting |
+
+**Repository note:** This is the intended folder structure. The original PDF, PowerPoint, and Excel files should be uploaded only after confirming publication permission and reviewing confidential information. Do not publish identifiable student or employee data.
+
+---
+
+## ⚠️ 13. Limitations and Future Improvements
+
+### Current Limitations
+
+- Inconsistent program names across datasets.
+- Some program-level ratios exceed 100% due to mapping differences.
+- Unreliable application and allotment dates.
+- Aggregate conversion ratios are not fully reconciled at applicant level.
+- Forecast accuracy has not been independently back-tested.
+- Original source CSVs and the Power BI `.pbix` file are not included in the supplied portfolio materials.
+
+### Future Enhancements
+
+- Create a controlled program mapping dimension.
+- Implement applicant-level funnel reconciliation.
+- Add a dedicated date dimension when reliable dates are available.
+- Improve data quality validation and exception reporting.
+- Validate forecast accuracy against actual results.
+- Extend analysis to recruitment channels if appropriate source data becomes available.
+
+---
+
+## 🏆 14. Skills Demonstrated
+
+| Category | Skills |
+|---|---|
+| Data Preparation | Power Query, Cleaning, Validation |
+| Data Modeling | Dimensional Modeling, Relationships |
+| Business Intelligence | Power BI, DAX, KPI Development |
+| Analytics | Funnel Analysis, Conversion, Capacity |
+| Excel | Weighted Scoring, Quartiles, Forecasting |
+| Communication | Documentation, Business Recommendations |
+
+---
+
+## 👤 15. Project Information
+
+**Developed by:** Priyanka Lenka
+
+**Project:** GITAM University Admissions Analytics & Performance Dashboard
+
+**Domain:** Higher Education Analytics
+
+**Tools:** Power BI, Power Query, DAX, Microsoft Excel
+
+### Project Summary
+
+This project demonstrates how admissions data can be transformed into a structured business intelligence solution through data preparation, dimensional modeling, KPI development, dashboard reporting, performance analysis, and scenario-based forecasting.
+
+It highlights the use of analytical methods to identify operational gaps and support admissions planning.
+
+**Disclaimer:** This repository represents an independent analytics assignment and portfolio case study, not an official GITAM University publication or endorsement. University branding and project materials should only be published with appropriate authorization.
+
+---
+
+<div align="center">
+
+### ⭐ From Raw Data to Actionable Business Insights
+
+**Data Preparation | Data Modeling | Business Intelligence | Forecasting**
+
+</div>
