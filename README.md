@@ -1,44 +1,74 @@
-# GITAM University Admissions Analytics & Performance Dashboard
+# 🎓 GITAM University | Admissions Analytics & Performance Dashboard
 
-### End-to-End Business Analytics Project
+### Transforming Admissions Data into Actionable Business Insights
 
-**Technologies:** Power BI | Power Query | DAX | Microsoft Excel | Data Modeling | Forecasting
+![Power BI](https://img.shields.io/badge/Power_BI-Dashboard-F2C811?style=for-the-badge)
+![Excel](https://img.shields.io/badge/Excel-Analytics-217346?style=for-the-badge)
+![Power Query](https://img.shields.io/badge/Power_Query-ETL-167C80?style=for-the-badge)
+![DAX](https://img.shields.io/badge/DAX-KPI_Development-305496?style=for-the-badge)
 
-## Project Overview
+**Project Type:** End-to-End Business Analytics & Reporting  
+**Domain:** Higher Education | Admissions | Marketing Performance  
+**Technologies:** Power BI, Power Query, DAX, Microsoft Excel  
+**Developed By:** Priyanka Lenka
 
-Developed an end-to-end admissions analytics solution to evaluate student application trends, admission conversion rates, campus performance, seat utilization, and operational performance.
+---
 
-The project includes a six-page Power BI dashboard, Excel-based employee performance quartile analysis, and scenario-based weekly admissions forecasting.
+## 📌 1. Executive Summary
 
-## Key Performance Indicators
+This project presents an end-to-end **University Admissions Analytics and Performance Monitoring Solution**, developed to transform admissions data into actionable insights for university leadership, admissions teams, and marketing operations.
 
-| KPI | Value |
-|---|---|
-| Total Applications | 32,891 |
-| Test Takers | 32,476 |
-| Qualified Candidates | 26,070 |
-| Confirmed Admissions | 7,629 |
-| Seat Intake | 9,201 |
-| Seat Utilization | 82.91% |
+The solution focuses on identifying conversion bottlenecks, monitoring student recruitment performance, analyzing campus and program-level demand, evaluating seat utilization, and supporting admissions planning.
 
-## Key Findings
+The project consists of two analytical workstreams:
 
-- Only 29.26% of qualified candidates converted into confirmed admissions.
-- Overall seat utilization reached 82.91%.
-- The largest unfilled-seat gap was identified in B.Tech Computer Science and Engineering.
-- Evaluated 53 admissions team members using weighted KPI scoring and quartile segmentation.
-- Developed pessimistic, normative, and optimistic weekly admissions forecasts.
+**Power BI Admissions Dashboard — 2026**
 
-## Project Deliverables
+- Data ingestion and transformation from four CSV datasets.
+- Data cleaning and validation using Power Query.
+- Dimensional data modeling and DAX KPI development.
+- Six-page interactive Power BI dashboard.
+- Admissions funnel, campus performance, intake utilization, and student profile analysis.
 
-- Six-page Power BI Admissions Dashboard (2026 data)
-- Excel Team Performance Quartile Analysis (2025 data)
-- Weekly Admissions Forecasting (2025 data)
-- Business Insights and Recommendations
-- Project Presentation and Documentation
+**Excel Operational Analytics — 2025**
 
-## Author
+- Performance evaluation of 53 admissions team members.
+- Weighted KPI scoring and quartile segmentation.
+- Weekly admissions forecasting.
+- Pessimistic, normative, and optimistic scenario analysis.
 
-Priyanka Lenka
+The two workstreams use separate admission cycles and are presented independently.
 
-**Skills demonstrated:** Business Intelligence, Data Cleaning, Data Transformation, KPI Development, Data Visualization, Forecasting, and Business Analysis.
+### What this project represents
+
+This is not simply a Power BI visualization project. It demonstrates the complete analytical lifecycle:
+
+**Business Requirements → Data Understanding → Data Cleaning → Data Modeling → KPI Development → Visualization → Business Insights → Recommendations**
+
+The project supports data-driven decisions across admissions operations, student recruitment, and capacity planning.
+
+---
+
+## 📊 2. Dashboard Preview
+
+![GITAM Admissions Main Dashboard](screenshots/main_dashboard.png)
+
+### Complete Power BI Dashboard
+
+**1. Main Dashboard — Executive Overview**
+
+![Main Dashboard](screenshots/main_dashboard.png)
+
+Provides an overview of applications, test takers, qualified students, confirmed admissions, intake capacity, and seat utilization.
+
+**2. Admissions Funnel — Conversion Analysis**
+
+![Admissions Funnel](screenshots/admissions_funnel.png)
+
+Identifies conversion rates and drop-offs across the admissions journey.
+
+**3. Application Analysis — Demand and Geography**
+
+![Application Analysis](screenshots/application_analysis.png)
+
+Analyzes campus demand, geographic distribution, program preferences, and test activity
